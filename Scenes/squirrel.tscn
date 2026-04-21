@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://d2vm35hcqwos6"]
+
+[ext_resource type="Texture2D" uid="uid://bwu26ic1hd2gw" path="res://assets/Squirrel Sprite Sheet.png" id="1_kugrw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opuox"]
+radius = 9.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgff4"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0ng0"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ijm4"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deb05"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul8tx"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fp44"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd7o4"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6drw7"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtflv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0ng0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ijm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deb05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul8tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fp44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd7o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6drw7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Squirrel" type="CharacterBody2D" unique_id=1777655041]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52461854]
+shape = SubResource("CapsuleShape2D_opuox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=132103230]
+sprite_frames = SubResource("SpriteFrames_mtflv")
