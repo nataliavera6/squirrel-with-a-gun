@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2vm35hcqwos6"]
 
 [ext_resource type="Texture2D" uid="uid://bwu26ic1hd2gw" path="res://assets/Squirrel Sprite Sheet.png" id="1_kugrw"]
+[ext_resource type="Script" uid="uid://os8q306l2x2n" path="res://scripts/squirrel.gd" id="1_opuox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opuox"]
 radius = 9.0
@@ -38,6 +39,30 @@ region = Rect2(192, 64, 32, 32)
 atlas = ExtResource("1_kugrw")
 region = Rect2(224, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_opuox"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtflv"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c50f1"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81htl"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axlhr"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rkqu"]
+atlas = ExtResource("1_kugrw")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mtflv"]
 animations = [{
 "frames": [{
@@ -66,14 +91,136 @@ animations = [{
 "texture": SubResource("AtlasTexture_6drw7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opuox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtflv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c50f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81htl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axlhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rkqu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0ng0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ijm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deb05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul8tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fp44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd7o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6drw7")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0ng0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ijm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deb05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul8tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fp44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd7o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6drw7")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgff4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0ng0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ijm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deb05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul8tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fp44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd7o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6drw7")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
-[node name="Squirrel" type="CharacterBody2D" unique_id=1777655041]
+[node name="Squirrel" type="CharacterBody2D" unique_id=1777655041 groups=["player"]]
+script = ExtResource("1_opuox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52461854]
+scale = Vector2(3.32, 3.32)
 shape = SubResource("CapsuleShape2D_opuox")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=132103230]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=132103230]
+scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_mtflv")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=704261551]
+zoom = Vector2(1.79, 1.79)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+editor_draw_limits = true
