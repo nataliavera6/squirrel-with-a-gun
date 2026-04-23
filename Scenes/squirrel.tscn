@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://os8q306l2x2n" path="res://scripts/squirrel.gd" id="1_opuox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opuox"]
-radius = 9.0
-height = 32.0
+radius = 7.53012
+height = 15.662649
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgff4"]
 atlas = ExtResource("1_kugrw")
@@ -205,14 +205,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opuox"]
+size = Vector2(64, 61)
+
 [node name="Squirrel" type="CharacterBody2D" unique_id=1777655041 groups=["player"]]
 script = ExtResource("1_opuox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52461854]
+position = Vector2(0, 25.999998)
 scale = Vector2(3.32, 3.32)
 shape = SubResource("CapsuleShape2D_opuox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=132103230]
+position = Vector2(1, 0)
 scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_mtflv")
 animation = &"idle"
@@ -224,3 +229,10 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1451383236]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2129528377]
+position = Vector2(-1, 26.5)
+shape = SubResource("RectangleShape2D_opuox")
+debug_color = Color(0.9024342, 0.00015536607, 0.75798947, 0.41960785)

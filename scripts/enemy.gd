@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 const JUMP_VELOCITY = -400.0
-const SPEED := 150.0
+const SPEED := 125.0
 @onready var jumps : int = 3
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -13,9 +13,9 @@ const SPEED := 150.0
 const speed = 150
 
 func _physics_process(delta: float) -> void:
-	if sprite.frame == 2:
-		sprite.stop()
-		moving = false
+	#if sprite.frame == 2:
+		#sprite.stop()
+		#moving = false
 
 	
 	if moving:
