@@ -10,7 +10,7 @@ const SPEED := 125.0
 @onready var moving : bool = false
 @onready var screen_size = get_viewport_rect().size
 
-const speed = 150
+#const speed = 150
 
 func _physics_process(delta: float) -> void:
 	#if sprite.frame == 2:
@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	if moving:
-		var dir := global_position.direction_to(player.global_position).normalized()
+		var dir := global_position.direction_to(player.global_position)
 
 		if abs(dir.x) > abs(dir.y):
 			if dir.x > 0:
@@ -38,9 +38,9 @@ func _physics_process(delta: float) -> void:
 			else:
 				if sprite.animation != "up":
 					sprite.play("up")
-#
 
-		velocity = dir * SPEED
+
+		velocity = dir * SPEED 
 		move_and_slide()
 
 

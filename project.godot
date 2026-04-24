@@ -15,10 +15,15 @@ run/main_scene="uid://dkspfl8qa6vuu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://squirrel-with-a-gun-1/icon.svg"
 
+[autoload]
+
+Global="*uid://ci2pke2wbwhyl"
+
 [global_group]
 
 player=""
 enemy=""
+item=""
 
 [input]
 

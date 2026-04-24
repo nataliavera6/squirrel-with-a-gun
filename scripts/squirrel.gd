@@ -7,7 +7,9 @@ const JUMP_VELOCITY = -400.0
 signal player_won
 signal player_idle
 signal player_moved
+signal item_pos
 @export var Bullet : PackedScene
+signal player_died
 var facing_direction = Vector2.RIGHT
 func _physics_process(delta: float) -> void:
 	is_shooting = false
@@ -52,10 +54,13 @@ func _physics_process(delta: float) -> void:
 		player_moved.emit()
 
 func shoot(direction: Vector2):
+	if direction==Vector2.ZERO:
+		return
 	var b = Bullet.instantiate()
 	get_tree().current_scene.add_child(b)
 	b.global_position = global_position
 	b.direction = direction
+	b.last_enemy_killed.connect(get_tree().current_scene._on_last_enemy_killed)
 	
 func animation_handler(direction: Vector2) -> void:
 	if direction != Vector2.ZERO:
@@ -87,7 +92,14 @@ func animation_handler(direction: Vector2) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		print("dead")
+		var death_position = body.global_position
+		body.queue_free()
+		player_died.emit()
+
+		#get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	elif body.is_in_group("item"):
+		
 		
 		body.queue_free()
-		queue_free()
+		#queue_free()
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")

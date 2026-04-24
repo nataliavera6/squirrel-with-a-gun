@@ -1,14 +1,56 @@
 [gd_scene format=3 uid="uid://dgrkubivcwsn2"]
 
+[ext_resource type="Texture2D" uid="uid://dnt8l8ep6hlsg" path="res://assets/The Male adventurer - Free/Shadow.png" id="1_ritxu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1pnx"]
+size = Vector2(23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvysp"]
+atlas = ExtResource("1_ritxu")
+region = Rect2(17, 36, 17, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ritxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvysp")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvysp")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvysp")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvysp")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
 
-[node name="items" type="Area2D" unique_id=688181174]
+[node name="items" type="Area2D" unique_id=688181174 groups=["item"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2060625045]
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_q1pnx")
 debug_color = Color(0.919243, 6.40139e-05, 0.7010749, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487674236]
 sprite_frames = SubResource("SpriteFrames_ritxu")
+animation = &"4"
