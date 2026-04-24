@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwu26ic1hd2gw" path="res://assets/Squirrel Sprite Sheet.png" id="1_kugrw"]
 [ext_resource type="Script" uid="uid://os8q306l2x2n" path="res://scripts/squirrel.gd" id="1_opuox"]
+[ext_resource type="PackedScene" uid="uid://buujbysgl1kiy" path="res://Scenes/bullet.tscn" id="2_dgff4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opuox"]
 radius = 7.53012
@@ -210,6 +211,7 @@ size = Vector2(73, 69)
 
 [node name="Squirrel" type="CharacterBody2D" unique_id=1777655041 groups=["player"]]
 script = ExtResource("1_opuox")
+Bullet = ExtResource("2_dgff4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52461854]
 position = Vector2(0, 25.999998)
@@ -223,7 +225,7 @@ sprite_frames = SubResource("SpriteFrames_mtflv")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=704261551]
-zoom = Vector2(1.79, 1.79)
+zoom = Vector2(1.35, 1.35)
 limit_left = 0
 limit_top = 0
 limit_right = 1152
@@ -231,10 +233,16 @@ limit_bottom = 648
 editor_draw_limits = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1451383236]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2129528377]
 position = Vector2(-0.5, 26.5)
 shape = SubResource("RectangleShape2D_opuox")
 debug_color = Color(0.9024342, 0.00015536607, 0.75798947, 0.41960785)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2050076362]
+position = Vector2(11, 39)
+gizmo_extents = 23.2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -259,6 +259,8 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1919077813 groups=["enemy"]]
 scale = Vector2(1.47, 1.47)
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_0830c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545279192]

@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 					sprite.play("right")
 					$AnimatedSprite2D.flip_h=false
 			else:
-				print("left")
+				#print("left")
 				if sprite.animation != "right":
 					sprite.play("right")
 					$AnimatedSprite2D.flip_h=true
