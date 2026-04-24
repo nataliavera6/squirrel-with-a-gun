@@ -10,11 +10,11 @@ func _ready() -> void:
 	player.player_won.connect(_on_player_victory)
 
 	player.player_moved.connect(_on_player_moved)
-	var droppy = preload("res://Scenes/enemy.tscn").instantiate()
-	var spawn_point: Vector2 = droppy_to_player()
+	var enemy = preload("res://Scenes/enemy.tscn").instantiate()
+	var spawn_point: Vector2 = enemy_to_player()
 	print("Spawning Enemy at: ", spawn_point)
-	droppy.global_position = spawn_point
-	add_child(droppy)
+	enemy.global_position = spawn_point
+	add_child(enemy)
 func _process(delta: float) -> void:
 	pass
 	#_update_time_label()
@@ -29,7 +29,7 @@ func _on_player_victory():
 func _on_player_moved() -> void:
 	player_is_idle = false
 
-func droppy_to_player() -> Vector2:
+func enemy_to_player() -> Vector2:
 	var viewport_size = get_viewport_rect().size
 	var cam = get_viewport().get_camera_2d()
 	var margin = 80.0

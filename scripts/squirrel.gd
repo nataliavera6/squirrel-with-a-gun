@@ -48,3 +48,16 @@ func animation_handler(direction: Vector2) -> void:
 				$AnimatedSprite2D.play("up")
 	else:
 		$AnimatedSprite2D.play("idle")
+		
+		
+
+		
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		print("dead")
+		
+		body.queue_free()
+		queue_free()
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")

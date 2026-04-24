@@ -206,7 +206,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opuox"]
-size = Vector2(64, 61)
+size = Vector2(73, 69)
 
 [node name="Squirrel" type="CharacterBody2D" unique_id=1777655041 groups=["player"]]
 script = ExtResource("1_opuox")
@@ -233,6 +233,8 @@ editor_draw_limits = true
 [node name="Area2D" type="Area2D" parent="." unique_id=1451383236]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2129528377]
-position = Vector2(-1, 26.5)
+position = Vector2(-0.5, 26.5)
 shape = SubResource("RectangleShape2D_opuox")
 debug_color = Color(0.9024342, 0.00015536607, 0.75798947, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
