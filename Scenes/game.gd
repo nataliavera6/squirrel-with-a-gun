@@ -15,6 +15,7 @@ func _ready() -> void:
 	player.player_died.connect(_on_player_died)
 	
 	player.player_moved.connect(_on_player_moved)
+	player.item_collected.connect(_on_item_collected)
 	if checkpoint_pos!=Vector2.ZERO:
 		player.global_position=checkpoint_pos
 	spawn_enemies(enemy_count)
@@ -31,8 +32,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 		
-		
-	#_update_time_label()
+func _on_item_collected(animation_name: String):
+	print("Game received item:", animation_name)
+	get_tree().paused = true
+	if animation_name == "1":
+		$DialogueBox.start_dialogue("You found the first item.")
+	elif animation_name == "2":
+		$DialogueBox.start_dialogue("You found the second item.")
+	else:
+		$DialogueBox.start_dialogue("You found an item.")
+
+
 func _on_last_enemy_killed(item_pos: Vector2):
 	spawn_item(level, item_pos)
 
@@ -56,12 +66,15 @@ func spawn_item(level, item_pos: Vector2):
 	var item = preload("res://Scenes/items.tscn").instantiate()
 	item.get_child(1).animation = level
 	item.global_position = item_pos
+
 	add_child(item)
 	
 func _on_player_died():
 	remove_all_enemies()
 	if checkpoint_pos!=Vector2.ZERO:
 		player.global_position=checkpoint_pos
+	else:
+		player.global_position = Vector2(20, 20)
 	spawn_enemies(enemy_count)
 	
 func remove_all_enemies():

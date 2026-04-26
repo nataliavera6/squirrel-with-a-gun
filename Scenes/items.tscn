@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dnt8l8ep6hlsg" path="res://assets/The Male adventurer - Free/Shadow.png" id="1_ritxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1pnx"]
-size = Vector2(23, 20)
+size = Vector2(26, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvysp"]
 atlas = ExtResource("1_ritxu")
@@ -44,13 +44,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="items" type="Area2D" unique_id=688181174 groups=["item"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1480070289 groups=["item"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2060625045]
-position = Vector2(-1.5, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=583858315]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_q1pnx")
-debug_color = Color(0.919243, 6.40139e-05, 0.7010749, 0.41960785)
+debug_color = Color(4.042983e-06, 0.5926625, 0.7373915, 0.41960785)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487674236]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1004094974]
 sprite_frames = SubResource("SpriteFrames_ritxu")
 animation = &"4"

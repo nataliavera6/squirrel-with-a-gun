@@ -8,6 +8,7 @@ signal player_won
 signal player_idle
 signal player_moved
 signal item_pos
+signal item_collected(animation_name: String)
 @export var Bullet : PackedScene
 signal player_died
 var facing_direction = Vector2.RIGHT
@@ -90,6 +91,7 @@ func animation_handler(direction: Vector2) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+
 	if body.is_in_group("enemy"):
 		print("dead")
 		var death_position = body.global_position
@@ -98,8 +100,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 		#get_tree().change_scene_to_file("res://Scenes/game.tscn")
 	elif body.is_in_group("item"):
-		
-		
+		var animation_name = body.get_node("AnimatedSprite2D").animation
 		body.queue_free()
+		item_collected.emit(animation_name)
+			
 		#queue_free()
-		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		

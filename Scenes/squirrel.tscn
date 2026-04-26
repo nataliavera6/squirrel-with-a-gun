@@ -210,6 +210,7 @@ animations = [{
 size = Vector2(73, 69)
 
 [node name="Squirrel" type="CharacterBody2D" unique_id=1777655041 groups=["player"]]
+scale = Vector2(0.56, 0.56)
 script = ExtResource("1_opuox")
 Bullet = ExtResource("2_dgff4")
 
@@ -225,7 +226,7 @@ sprite_frames = SubResource("SpriteFrames_mtflv")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=704261551]
-zoom = Vector2(1.35, 1.35)
+zoom = Vector2(2.62, 2.62)
 limit_left = 0
 limit_top = 0
 limit_right = 1152
