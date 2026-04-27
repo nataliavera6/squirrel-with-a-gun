@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buujbysgl1kiy"]
 
 [ext_resource type="Script" uid="uid://bax06lbnih8fj" path="res://Scenes/bullet.gd" id="1_oduel"]
-[ext_resource type="Texture2D" uid="uid://qwh613sjowxt" path="res://icon.svg" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://cju6ap4eyrsej" path="res://assets/url copy.png" id="2_oduel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
 size = Vector2(6, 6)
@@ -16,11 +16,12 @@ shape = SubResource("RectangleShape2D_oduel")
 debug_color = Color(0.9260798, 3.965974e-05, 0.675725, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1302646951]
-position = Vector2(-3.8146973e-06, 0)
-scale = Vector2(0.21833801, 0.22785947)
-texture = ExtResource("1_xjght")
+scale = Vector2(0.081149206, 0.1006579)
+texture = ExtResource("2_oduel")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=970751502]
+position = Vector2(4, 4)
+rect = Rect2(-10, -10, 12, 11)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,5 +1,5 @@
 extends Area2D
-var speed = 900
+var speed = 700
 var velocity = Vector2()
 signal last_enemy_killed(position)
 # Called when the node enters the scene tree for the first time.

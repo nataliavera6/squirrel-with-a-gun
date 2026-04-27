@@ -215,12 +215,12 @@ script = ExtResource("1_opuox")
 Bullet = ExtResource("2_dgff4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52461854]
-position = Vector2(0, 25.999998)
+position = Vector2(0, -1.7857113)
 scale = Vector2(3.32, 3.32)
 shape = SubResource("CapsuleShape2D_opuox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=132103230]
-position = Vector2(1, 0)
+position = Vector2(-1.1920929e-07, -35.714287)
 scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_mtflv")
 animation = &"idle"
@@ -238,12 +238,12 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2129528377]
-position = Vector2(-0.5, 26.5)
+position = Vector2(-1.7857056, -1.7857132)
 shape = SubResource("RectangleShape2D_opuox")
 debug_color = Color(0.9024342, 0.00015536607, 0.75798947, 0.41960785)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2050076362]
-position = Vector2(11, 39)
+position = Vector2(8.928572, 7.1428566)
 gizmo_extents = 23.2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

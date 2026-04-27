@@ -6031,7 +6031,7 @@ tile_map_data = PackedByteArray("AAAdABIAAAADAAUAAAAeABIAAAABAAUAAAAfABIAAAADAAU
 tile_set = SubResource("TileSet_nnt18")
 
 [node name="Squirrel" parent="." unique_id=1777655041 instance=ExtResource("1_qxrlw")]
-position = Vector2(246, 15)
+position = Vector2(247, 22)
 
 [node name="Timer" type="Timer" parent="." unique_id=681834796]
 
