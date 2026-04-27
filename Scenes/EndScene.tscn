@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b6s3kgqvy6r30"]
+
+[ext_resource type="Script" uid="uid://fambef6yniax" path="res://Scenes/end_scene.gd" id="1_fxskr"]
+[ext_resource type="VideoStream" uid="uid://c7b5mkhw6f20c" path="res://assets/0426.ogv" id="2_ckv4c"]
+
+[node name="Control" type="Control" unique_id=1916618575]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxskr")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=661545416]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.30186826, 0.29895794)
+stream = ExtResource("2_ckv4c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=583741735]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.832298, 16.19777)
+color = Color(0.021434637, 0.021434635, 0.021434633, 1)

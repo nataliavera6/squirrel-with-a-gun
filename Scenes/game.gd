@@ -9,6 +9,10 @@ var player_is_idle = false
 var Levels = ["1","2","3","4"]
 var level = Levels[0]
 var checkpoint_pos: Vector2
+var items_collected = 0
+var items_needed = 3
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.player_won.connect(_on_player_victory)
@@ -31,17 +35,73 @@ func _ready() -> void:
 	#add_child(enemy)
 func _process(delta: float) -> void:
 	pass
-		
-func _on_item_collected(animation_name: String):
-	print("Game received item:", animation_name)
-	get_tree().paused = true
-	if animation_name == "1":
-		$DialogueBox.start_dialogue("You found the first item.")
-	elif animation_name == "2":
-		$DialogueBox.start_dialogue("You found the second item.")
-	else:
-		$DialogueBox.start_dialogue("You found an item.")
 
+func _on_item_collected(animation_name: String):
+
+	if get_tree().paused:
+		return
+
+	items_collected += 1
+	print("ITEMS:", items_collected, "/", items_needed)
+
+	get_tree().paused = true
+
+	$DialogueBox.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	if animation_name == "1":
+		$DialogueBox.start_dialogue("A ring, seems familiar.")
+	elif animation_name == "2":
+		$DialogueBox.start_dialogue("I remember someone loving pie.")
+	else:
+		$DialogueBox.start_dialogue("To my dearly beloved...")
+		
+#func _on_item_collected(animation_name: String):
+	#items_collected += 1
+	#print("ITEMS:", items_collected)
+#
+	#if items_collected >= items_needed:
+		#get_tree().change_scene_to_file("res://Scenes/EndScene.tscn")
+	#
+	#if animation_name == "1":
+		#$DialogueBox.start_dialogue("A ring, seems familiar.")
+	#elif animation_name == "2":
+		#$DialogueBox.start_dialogue("I remember someone loving pie.")
+	#else:
+		#$DialogueBox.start_dialogue("To my dearly beloved?")
+
+func _on_DialogueBox_dialogue_finished():
+	get_tree().paused = false
+
+	if items_collected >= items_needed:
+		call_deferred("trigger_end_game")
+#func _on_DialogueBox_dialogue_finished():
+	#get_tree().paused = false
+#
+	## ONLY trigger end AFTER final dialogue is done AND NOT immediately
+	#if items_collected == items_needed:
+		call_deferred("trigger_end_game")
+#func _on_DialogueBox_dialogue_finished():
+	#get_tree().paused = false
+	#
+	#if items_collected >= items_needed:
+		#trigger_end_game()
+		#call_deferred("trigger_end_game")
+	#else:
+		#get_tree().paused = false		
+##func _on_DialogueBox_dialogue_finished():
+	##get_tree().paused = false
+	#
+	#if items_collected >= items_needed:
+		#trigger_end_game()
+func trigger_end_game():
+	print("ENDING GAME → VIDEO")
+
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://EndScene.tscn")		
+#func trigger_end_game():
+	#print("🔥 trigger_end_game CALLED")
+	#get_tree().paused = false
+	#get_tree().change_scene_to_file("res://Scenes/EndScene.tscn")
 
 func _on_last_enemy_killed(item_pos: Vector2):
 	spawn_item(level, item_pos)
@@ -82,7 +142,7 @@ func remove_all_enemies():
 		enemy.queue_free()
 		
 func spawn_enemies(amount: int) -> void:
-	print(amount)
+	#print(amount)
 	for i in range(amount):
 		var enemy = preload("res://Scenes/enemy.tscn").instantiate()
 		var spawn_point: Vector2 = enemy_to_player()
@@ -173,7 +233,8 @@ func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
 
 
-func _on_texture_button_pressed() -> void:
-	var bus := AudioServer.get_bus_index("Master")
-	var muted := AudioServer.is_bus_mute(bus)
-	AudioServer.set_bus_mute(bus, not muted)
+
+#func _on_texture_button_pressed() -> void:
+	#var bus := AudioServer.get_bus_index("Master")
+	#var muted := AudioServer.is_bus_mute(bus)
+	#AudioServer.set_bus_mute(bus, not muted)
