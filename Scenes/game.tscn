@@ -2,12 +2,59 @@
 
 [ext_resource type="PackedScene" uid="uid://d2vm35hcqwos6" path="res://Scenes/squirrel.tscn" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://dc6peloi8ljp1" path="res://Scenes/game.gd" id="1_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dgrkubivcwsn2" path="res://Scenes/items.tscn" id="2_3dryh"]
+[ext_resource type="Texture2D" uid="uid://b0amqj1pybp2r" path="res://Item__41.png" id="2_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://bo0ojle1lwxdh" path="res://assets/16x16_Pixel_Warehouse_V1/WarehouseTilemap.png" id="3_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://dwkmukpakdvh" path="res://Item__67.png" id="3_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://cyra1m2ortg00" path="res://Scenes/dialogue_box.tscn" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://de74nmwt5623w" path="res://Item__36.png" id="4_rku1e"]
 [ext_resource type="Texture2D" uid="uid://b82hkbbg8etmi" path="res://assets/16x16_Pixel_Warehouse_V1/WarehouseTilemapExtras.png" id="4_v158k"]
 [ext_resource type="Texture2D" uid="uid://cem1d2ohhjxn2" path="res://assets/16x16_Pixel_Warehouse_V1/ShelfingTilemap.png" id="5_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://bnu7vpebt4cyy" path="res://assets/floor.png" id="6_v158k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1pnx"]
+size = Vector2(26, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ritxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldgsr")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o5yvi")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rku1e")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[sub_resource type="PackedScene" id="PackedScene_rfjv2"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("CharacterBody2D", "item", "CollisionShape2D", "position", "shape", "debug_color", "AnimatedSprite2D", "sprite_frames", "animation"),
+"node_count": 3,
+"node_ids": PackedInt32Array(1480070289, 583858315, 1004094974),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 0, 0, -1, 0, 1, 1, 0, 0, 2, 2, -1, 3, 3, 0, 4, 1, 5, 2, 0, 0, 0, 6, 6, -1, 2, 7, 3, 8, 4, 0),
+"variants": [Vector2(-1, 0), SubResource("RectangleShape2D_q1pnx"), Color(4.042983e-06, 0.5926625, 0.7373915, 0.41960785), SubResource("SpriteFrames_ritxu"), &"3"],
+"version": 3
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ldgsr"]
 texture = ExtResource("3_1l0tm")
@@ -6008,7 +6055,7 @@ sources/1 = SubResource("TileSetAtlasSource_85qyi")
 
 [node name="Node2D" type="Node2D" unique_id=58442643]
 script = ExtResource("1_wrm1d")
-Item = ExtResource("2_3dryh")
+Item = SubResource("PackedScene_rfjv2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=104915175]
 visible = false
