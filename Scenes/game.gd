@@ -2,7 +2,7 @@ extends Node2D
 @onready var player = $Squirrel
 @onready var screen_size = get_viewport_rect().size
 var changing_level := false
-var enemy_count := 1
+var enemy_count := 2
 var player_is_idle = false
 @onready var timer: Timer=$Timer
 @export var Item : PackedScene
