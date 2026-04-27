@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cyra1m2ortg00"]
+
+[ext_resource type="Script" uid="uid://cmoihe68eovtt" path="res://dialogue_box.gd" id="1_hygrc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hygrc"]
+bg_color = Color(0, 0, 0, 0.4)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=596047162]
+process_mode = 3
+script = ExtResource("1_hygrc")
+
+[node name="Panel" type="Panel" parent="." unique_id=1776211292]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -419.0
+offset_top = -126.0
+offset_right = 419.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hygrc")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1802371204]
+layout_mode = 0
+offset_right = 835.0
+offset_bottom = 126.0
+horizontal_alignment = 1
+vertical_alignment = 1
